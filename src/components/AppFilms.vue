@@ -21,7 +21,7 @@ export default {
             <div class="mt-3">
                 <h5>Titolo originale: {{ films.original_title }}</h5>
                 <h5>Voto: {{ films.vote_average }}</h5>
-                <h5>Lingua: {{ films.original_language }}</h5>
+                <img :src="`https://www.countryflagicons.com/FLAT/64/${(films.original_language).toUpperCase()}.png`">
             </div>
         </div>
   </div>
