@@ -16,7 +16,6 @@ export default {
             return store.movieArray.length
         }
     }
-    
 }
 </script>
 
