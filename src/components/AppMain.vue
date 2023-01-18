@@ -33,23 +33,21 @@ export default {
     
             <div class="row p-3">
                 <div class="col-12">
-                    <h3>{{ numberFilms }} FILM </h3>
+                    <h3>{{ numberFilms }} Film </h3>
                 </div>
             </div>
     
             <!-- sezione Film -->
     
-            <div class="row ow-cols-5 gap-2">
-                
+            <div class="row row-cols-5 gap-2">
                 <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
-                
             </div>
     
             <!-- conteggio Serie -->
     
             <div class="row p-3">
                 <div class="col-12">
-                    <h3>{{ numberSeries }} SERIE</h3>
+                    <h3>{{ numberSeries }} Serie TV</h3>
                 </div>
             </div>
     
@@ -66,9 +64,12 @@ export default {
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
 
+    .container{
+        height: 100vh;
+    }
     h3{
         font-size: 25px;
-        font-weight: 700;
+        font-weight: 500;
         color: $white;
     }
 </style>
