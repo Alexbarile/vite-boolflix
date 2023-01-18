@@ -9,13 +9,19 @@ export default {
         }
     },
     methods: {
-        search (search){
-            let apiCall = store.api + search
-            axios.get(apiCall).then((response) => {
+
+        // richiamo l'API dei film e delle serie + nome della ricerca
+
+        search(search){
+            let apiCallFilm = store.apiFilms + search
+            axios.get(apiCallFilm).then((response) => {
                 store.movieArray = response.data.results
             })
-
-        }
+            let apiCallSerie = store.apiSeries + search
+            axios.get(apiCallSerie).then((response) => {
+                store.serieArray = response.data.results
+            })
+        },
     },
 }
 </script>

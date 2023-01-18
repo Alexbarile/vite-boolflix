@@ -19,18 +19,29 @@ export default {
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-8 d-flex align-items-center">
+
+                        <!-- logo -->
+
                         <div class="logo">
                             <img src="../../public/img/Netflix.png" alt="">
                         </div>
-                        <ul class="d-flex">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">Serie TV</a></li>
-                            <li><a href="#">Film</a></li>
-                            <li><a href="#">Originali</a></li>
-                            <li><a href="#">Aggiunti di recente</a></li>
-                            <li><a href="#">La mia lista</a></li>
-                        </ul>
+
+                        <!-- navbar -->
+
+                        <nav>
+                            <ul class="d-flex">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Serie TV</a></li>
+                                <li><a href="#">Film</a></li>
+                                <li><a href="#">Originali</a></li>
+                                <li><a href="#">Aggiunti di recente</a></li>
+                                <li><a href="#">La mia lista</a></li>
+                            </ul>
+                        </nav>
                     </div>
+
+                    <!-- searchbar -->
+
                     <div class="col-4">
                         <AppSearch></AppSearch>
                     </div>
