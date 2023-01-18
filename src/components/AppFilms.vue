@@ -9,6 +9,18 @@ export default {
             store
         }
     },
+    // stelle come voto
+    methods: {
+        stars(){
+            let star = [];
+            for (let i=0; i < 5; i++){
+                if(i < math.ceil(this.films.vote_average / 2)){
+                    star.push(i);
+                }
+            }
+            return star;
+        }
+    },
 }
 </script>
 
@@ -21,7 +33,9 @@ export default {
             <div class="info mt-4">
                 <h4 class="card-title">{{ films.title }}</h4>
                 <h5>Titolo originale: {{ films.original_title }}</h5>
-                <h5>Voto: {{ films.vote_average }}</h5>
+                <h5>Voto: 
+                    <i v-for="(item, index) in star" :key="index" class="fa-solid fa-star"></i>
+                </h5>
                 <img :src="`https://www.countryflagicons.com/FLAT/64/${(films.original_language).toUpperCase()}.png`">
             </div>
         </div>
