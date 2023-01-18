@@ -39,8 +39,16 @@ export default {
         <!-- sezione Film e Serie -->
 
         <div class="row row-cols-6 gap-5 mt-5">
-            <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
-            <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
+            
+                films
+                <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
+            
+        </div>
+        <div class="row row-cols-6 gap-5 mt-5">
+            
+                serie
+                <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
+            
         </div>
     </div>
 </template>

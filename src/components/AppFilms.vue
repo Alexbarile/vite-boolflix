@@ -6,7 +6,8 @@ export default {
     },
     data() {
         return {
-            store
+            store,
+            visibility: true
         }
     },
 
@@ -42,12 +43,12 @@ export default {
 </script>
 
 <template>
-    <div class="col card">
-        <div class="card-body">
-            <div class="path">
-                <img class="card-img-top" :src="`https://www.themoviedb.org/t/p/w300/${(films.poster_path)}`">
+    <div class="col card" @mouseover="visibility=false" @mouseleave="visibility=true">
+        <div class="card-body" >
+            <div v-if="visibility" class="path">
+                <img class="card-img-top" :src="`https://www.themoviedb.org/t/p/w342/${(films.poster_path)}`">
             </div>
-            <div class="info mt-4">
+            <div v-if="!visibility" class="info mt-4">
                 <h4 class="card-title">{{ films.title }}</h4>
                 <h5>Titolo originale: {{ films.original_title }}</h5>
                 <h5>Voto: 

@@ -28,14 +28,28 @@ export default {
 
 <template>
     <div class="input-group p-4 mb-3">
-        <input type="text" class="form-control" placeholder="Inserisci il film" aria-label="Inserisci il film" aria-describedby="basic-addon2" v-model="searchText" @keyup.enter="search(searchText)">
-        <button class="btn btn-light" type="button" id="button-addon2" @click="search(searchText)">Cerca</button>
+      
+        <input type="text" class="form-control" placeholder="Titolo" aria-label="Titolo" aria-describedby="basic-addon2" v-model="searchText" @keyup.enter="search(searchText)">
+        <button class="btn btn-dark" type="button" id="button-addon2" @click="search(searchText)"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
-    
-   
+
+.input-group{
+    margin: 0 !important;
+    width: 250px;
+
+    .form-control{
+        border-radius: 20px;
+        border: 1px solid gray;
+        background-color: black;
+        color: $white;
+    }
+    .btn{
+        border: 1px solid gray;
+    }
+}
 </style>
