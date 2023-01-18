@@ -9,12 +9,36 @@ export default {
             store
         }
     },
+
     // stelle come voto
     methods: {
         countStars(vote){
             return Math.ceil(vote / 2)
-        }
+        },
+        
+        // cambio bandiera per mostare bandiera EN to GB
+
+        changeFlag(value){
+            let flag = '';
+            if(value.original_language){
+                switch(value.original_language){
+                    case 'en': 
+                    flag = 'gb' 
+                    break
+
+                    default:
+                    flag = (value.original_language)
+                    break
+
+                }
+                let urlFlag = flag.toUpperCase()
+                return urlFlag
+            }
+        },
     },
+
+
+
 }
 </script>
 
@@ -31,7 +55,7 @@ export default {
                     <i v-for="i in countStars(films.vote_average)" class="fa-solid fa-star"></i>
                     <i v-for="i in 5-countStars(films.vote_average)" class="fa-regular fa-star"></i>
                 </h5>
-                <img :src="`https://www.countryflagicons.com/FLAT/64/${(films.original_language).toUpperCase()}.png`">
+                <img :src="`https://www.countryflagicons.com/FLAT/64/${changeFlag(films)}.png`">
             </div>
         </div>
     </div>
