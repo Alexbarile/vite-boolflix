@@ -10,8 +10,10 @@ export default {
         }
     },
 
-    // stelle come voto
     methods: {
+
+        // stelle come voto
+        
         countStars(vote){
             return Math.ceil(vote / 2)
         },
@@ -36,9 +38,6 @@ export default {
             }
         },
     },
-
-
-
 }
 </script>
 
