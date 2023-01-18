@@ -25,37 +25,50 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <div class="row mt-3 mb-3">
+    <main class="black-bg">
 
-            <!-- conteggio Film e Serie -->
-
-            <div class="col-12">
-                <p>Ho trovato {{ numberFilms }} Film </p>
-                <p>Ho trovato {{ numberSeries }} Serie</p>
+        <div class="container">
+    
+            <!-- conteggio Film -->
+    
+            <div class="row p-3">
+                <div class="col-12">
+                    <h3>{{ numberFilms }} FILM </h3>
+                </div>
+            </div>
+    
+            <!-- sezione Film -->
+    
+            <div class="row ow-cols-5 gap-2">
+                
+                <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
+                
+            </div>
+    
+            <!-- conteggio Serie -->
+    
+            <div class="row p-3">
+                <div class="col-12">
+                    <h3>{{ numberSeries }} SERIE</h3>
+                </div>
+            </div>
+    
+            <!-- sezione Serie -->
+    
+            <div class="row row-cols-5 gap-2"> 
+                 <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
             </div>
         </div>
-
-        <!-- sezione Film e Serie -->
-
-        <div class="row row-cols-6 gap-5 mt-5">
-            
-                films
-                <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
-            
-        </div>
-        <div class="row row-cols-6 gap-5 mt-5">
-            
-                serie
-                <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
-            
-        </div>
-    </div>
+    </main>
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
-    
-   
+
+    h3{
+        font-size: 25px;
+        font-weight: 700;
+        color: $white;
+    }
 </style>

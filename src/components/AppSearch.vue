@@ -45,7 +45,7 @@ export default {
     .form-control{
         border-radius: 20px;
         border: 1px solid gray;
-        background-color: black;
+        background-color: rgb(27, 27, 27);
         color: $white;
     }
     .btn{

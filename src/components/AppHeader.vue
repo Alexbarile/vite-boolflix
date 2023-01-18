@@ -15,7 +15,7 @@ export default {
 
 <template>
     <header>
-        <div class="bg-black">
+        <div class="black-bg">
             <div class="container-header">
                 <div class="row d-flex align-items-center">
                     <div class="col-8 d-flex align-items-center">
