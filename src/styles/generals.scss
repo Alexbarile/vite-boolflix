@@ -16,6 +16,59 @@ body {
     margin: 0 auto;
 }
 
+.container-main {
+    width: 85%;
+    margin: 0 auto;
+}
+
 .black-bg {
     background-color: rgb(27, 27, 27);
+}
+
+// Card Film e Serie
+
+.card-single {
+    width: 350px;
+    height: 300px;
+    display: flex;
+    padding: 5px;
+    cursor: pointer;
+
+    .img,
+    .info {
+        width: 200px;
+        height: 100%;
+        object-fit: cover;
+        background-image: url('../../public/img/N.png');
+        background-size: 200px;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    .title {
+        font-size: 15px;
+        color: white;
+    }
+
+    .original-title,
+    .rating {
+        font-size: 13px;
+        color: white;
+    }
+
+    .original-title span {
+        font-weight: 300;
+    }
+
+    .flag {
+        width: 40px;
+    }
+
+    i {
+        color: rgb(207, 207, 45);
+    }
 }

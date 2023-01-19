@@ -43,20 +43,18 @@ export default {
 </script>
 
 <template>
-    <div class="col card" @mouseover="visibility=false" @mouseleave="visibility=true">
-        <div class="card-body">
-            <div v-if="visibility" class="path">
-                <img class="card-img-top" :src="`https://www.themoviedb.org/t/p/w342/${(series.poster_path)}`">
-            </div>
-            <div v-if="!visibility" class="info mt-4">
-                <h4 class="card-title">{{ series.name }}</h4>
-                <h5>Titolo originale: {{ series.original_name }}</h5>
-                <h5>Voto: 
-                    <i v-for="i in countStars(series.vote_average)" class="fa-solid fa-star"></i>
-                    <i v-for="i in 5-countStars(series.vote_average)" class="fa-regular fa-star"></i>
-                </h5>
-                <img :src="`https://www.countryflagicons.com/FLAT/64/${changeFlag(series)}.png`">
-            </div>
+    <div class="card-single" @mouseover="visibility=false" @mouseleave="visibility=true">
+        <div v-if="visibility">
+            <img class="img" :src="`https://www.themoviedb.org/t/p/w342/${(series.poster_path)}`">
+        </div>
+        <div v-if="!visibility" class="info">
+            <h4 class="title">{{ series.name }}</h4>
+            <h5 class="original-title">Titolo originale: <span>{{ series.original_name }}</span></h5>
+            <h5 class="rating">Voto: 
+                <i v-for="i in countStars(series.vote_average)" class="fa-solid fa-star"></i>
+                <i v-for="i in 5-countStars(series.vote_average)" class="fa-regular fa-star"></i>
+            </h5>
+            <img class="flag" :src="`https://www.countryflagicons.com/FLAT/64/${changeFlag(series)}.png`">
         </div>
     </div>
 </template>
@@ -65,11 +63,5 @@ export default {
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
 
-    .card{
-        cursor: pointer;
 
-        i{
-            color: rgb(207, 207, 45);
-        }
-    }
 </style>

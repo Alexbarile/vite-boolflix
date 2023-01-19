@@ -27,7 +27,7 @@ export default {
 <template>
     <main class="black-bg">
 
-        <div class="container">
+        <div class="container-main">
     
             <!-- conteggio Film -->
     
@@ -39,7 +39,7 @@ export default {
     
             <!-- sezione Film -->
     
-            <div class="row row-cols-5 gap-2">
+            <div class="row-object">
                 <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
             </div>
     
@@ -53,7 +53,7 @@ export default {
     
             <!-- sezione Serie -->
     
-            <div class="row row-cols-5 gap-2"> 
+            <div class="row-object"> 
                  <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
             </div>
         </div>
@@ -64,12 +64,16 @@ export default {
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
 
-    .container{
-        height: 100vh;
-    }
+    
     h3{
         font-size: 25px;
         font-weight: 500;
         color: $white;
+    }
+
+    .row-object{
+        display: flex;
+        width: 100%;
+        overflow-y: hidden; 
     }
 </style>
