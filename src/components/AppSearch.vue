@@ -14,13 +14,31 @@ export default {
 
         search(search){
             let apiCallFilm = store.apiFilms + search
-            axios.get(apiCallFilm).then((response) => {
-                store.movieArray = response.data.results
-            })
-            let apiCallSerie = store.apiSeries + search
-            axios.get(apiCallSerie).then((response) => {
-                store.serieArray = response.data.results
-            })
+                axios.get(apiCallFilm).then((response) => {
+                    store.movieArray = response.data.results
+                })
+                let apiCallSerie = store.apiSeries + search
+                axios.get(apiCallSerie).then((response) => {
+                    store.serieArray = response.data.results
+                })
+
+            // funzione per tornare alla schermata vuota una volta tolto il film dala searchbar
+
+            // if(search == ''){
+            //     store.movieArray = [];
+            //     store.serieArray = [],
+
+            // }
+            // else{
+            //     let apiCallFilm = store.apiFilms + search
+            //     axios.get(apiCallFilm).then((response) => {
+            //         store.movieArray = response.data.results
+            //     })
+            //     let apiCallSerie = store.apiSeries + search
+            //     axios.get(apiCallSerie).then((response) => {
+            //         store.serieArray = response.data.results
+            //     })
+            // }
         },
     },
 }
@@ -28,7 +46,6 @@ export default {
 
 <template>
     <div class="input-group p-4 mb-3">
-      
         <input type="text" class="form-control" placeholder="Titolo" aria-label="Titolo" aria-describedby="basic-addon2" v-model="searchText" @keyup.enter="search(searchText)">
         <button class="btn btn-dark" type="button" id="button-addon2" @click="search(searchText)"><i class="fa-solid fa-magnifying-glass"></i></button>
     </div>

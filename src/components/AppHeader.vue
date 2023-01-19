@@ -81,7 +81,7 @@ export default {
             padding: 0 !important;
 
             li{
-                font-size: 12px;
+                font-size: 15px;
                 padding: 10px;
                 list-style-type: none;
                 
@@ -96,8 +96,6 @@ export default {
             }
         }
     }
-
-
     .fa-bell{
         color: $white;
         padding: 5px;
@@ -106,7 +104,6 @@ export default {
             color: gray;
         }
     }
-
     .col-4{
         padding-right: 20px;
         .logo-profilo{

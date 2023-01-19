@@ -63,17 +63,15 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
-
     
     h3{
         font-size: 25px;
         font-weight: 500;
         color: $white;
     }
-
     .row-object{
         display: flex;
         width: 100%;
-        overflow-y: hidden; 
+        overflow-y: hidden;
     }
 </style>
