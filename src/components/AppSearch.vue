@@ -8,6 +8,7 @@ export default {
             searchText: '',
         }
     },
+   
     methods: {
 
         // richiamo l'API dei film e delle serie + nome della ricerca
@@ -15,11 +16,11 @@ export default {
         search(search){
             let apiCallFilm = store.apiFilms + search
                 axios.get(apiCallFilm).then((response) => {
-                    store.movieArray = response.data.results
+                    store.movieArray = response.data.results;
                 })
                 let apiCallSerie = store.apiSeries + search
                 axios.get(apiCallSerie).then((response) => {
-                    store.serieArray = response.data.results
+                    store.serieArray = response.data.results;
                 })
 
             // funzione per tornare alla schermata vuota una volta tolto il film dala searchbar

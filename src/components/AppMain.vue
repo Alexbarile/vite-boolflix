@@ -1,10 +1,12 @@
 <script>
+import AppJumbo from './AppJumbo.vue';
 import AppFilms from './AppFilms.vue';
 import AppSeries from './AppSeries.vue';
 import { store } from '../store';
 
 export default {
     components:{
+        AppJumbo,
         AppFilms,
         AppSeries
     },
@@ -13,6 +15,7 @@ export default {
             store,
         }
     },
+    
     computed:{
         numberFilms(){
             return store.movieArray.length
@@ -28,33 +31,54 @@ export default {
     <main class="black-bg">
 
         <div class="container-main">
-    
-            <!-- conteggio Film -->
-    
-            <div class="row p-3">
-                <div class="col-12">
-                    <h3>{{ numberFilms }} Film </h3>
+
+            <!-- intro Netflix -->
+
+            <div v-if="store.movieArray.length == 0 & store.serieArray.length == 0" class="text-center">
+                <div class="sfondo-bg">
+                    <img src="../../public/img/Nertflix-1.jpeg" alt="">
                 </div>
             </div>
+
+            <!-- sezione Film e Serie -->
+
+            <div v-else>
+
+                <!-- Jumbotron -->
+
+                <AppJumbo></AppJumbo>
+
+                <div class="container-contents">
+                    
+                    <!-- conteggio Film -->
     
-            <!-- sezione Film -->
-    
-            <div class="row-object">
-                <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
-            </div>
-    
-            <!-- conteggio Serie -->
-    
-            <div class="row p-3">
-                <div class="col-12">
-                    <h3>{{ numberSeries }} Serie TV</h3>
+                    <div class="row p-3">
+                        <div class="col-12">
+                            <h3>{{ numberFilms }} Film </h3>
+                        </div>
+                    </div>
+            
+                    <!-- sezione Film -->
+            
+                    <div class="row-object">
+                        <AppFilms v-for="(item, index) in store.movieArray" :key="index" :films="item"/>
+                    </div>
+            
+                    <!-- conteggio Serie -->
+            
+                    <div class="row p-3">
+                        <div class="col-12">
+                            <h3>{{ numberSeries }} Serie TV</h3>
+                        </div>
+                    </div>
+            
+                    <!-- sezione Serie -->
+            
+                    <div class="row-object"> 
+                         <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
+                    </div>
                 </div>
-            </div>
-    
-            <!-- sezione Serie -->
-    
-            <div class="row-object"> 
-                 <AppSeries v-for="(item, index) in store.serieArray" :key="index" :series="item"/>
+
             </div>
         </div>
     </main>
@@ -64,6 +88,12 @@ export default {
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variables' as *;
     
+    .sfondo-bg{
+        img{
+            width: 100%; 
+        }
+    }
+
     h3{
         font-size: 25px;
         font-weight: 500;
