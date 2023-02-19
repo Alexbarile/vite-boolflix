@@ -8,4 +8,5 @@ export const store = reactive({
     serieArray: [],
     loading: false,
     objectActive: '',
+    searchBar: false,
 })

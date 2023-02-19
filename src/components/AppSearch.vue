@@ -41,15 +41,30 @@ export default {
             //     })
             // }
         },
+
+        showBar(){
+                if(store.searchBar == false){
+                    store.searchBar = true
+                }else{
+                    store.searchBar = false
+                }
+                
+            },
     },
 }
 </script>
 
 <template>
-    <div class="input-group p-4 mb-3">
+    <div v-if="store.searchBar" class="input-group">
+        <input type="text" class="form-control" placeholder="Titolo" v-model="searchText" @keyup.enter="search(searchText)">
+    </div>
+    <i v-if="!store.searchBar" class="fa-solid fa-magnifying-glass mx-3" type="button" @click="showBar()"></i>
+    <i v-if="store.searchBar" class="fa-solid fa-circle-xmark mx-3" type="button" @click="showBar()"></i>
+    
+    <!-- <div class="input-group p-4 mb-3">
         <input type="text" class="form-control" placeholder="Titolo" aria-label="Titolo" aria-describedby="basic-addon2" v-model="searchText" @keyup.enter="search(searchText)">
         <button class="btn btn-dark" type="button" id="button-addon2" @click="search(searchText)"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </div>
+    </div> -->
 </template>
 
 <style lang="scss" scoped>
@@ -59,15 +74,9 @@ export default {
 .input-group{
     margin: 0 !important;
     width: 250px;
-
-    .form-control{
-        border-radius: 20px;
-        border: 1px solid gray;
-        background-color: rgb(27, 27, 27);
-        color: $white;
-    }
-    .btn{
-        border: 1px solid gray;
-    }
 }
+
+.fa-solid{
+        color: white
+    }
 </style>
